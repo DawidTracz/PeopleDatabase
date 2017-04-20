@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>personView</title>
+</head>
+<body>
+<h1>People</h1>
+<p style="color:green;" th:text="${message}"/>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SURNAME</th>
+        <th>REMOVE</th>
+    </tr>
+<tr th:each="obj : ${people}">
+    <td th:text="${obj.id}"/>
+    <td th:text="${obj.name}"/>
+    <td th:text="${obj.surname}"/>
+    <td><a data-confirm="Are u sure bro?" th:href="@{/people/{id}(id=${obj.id})}">
+    Delete
+    </a></td>
+</tr>
+</table>
+
+</body>
+</html>
